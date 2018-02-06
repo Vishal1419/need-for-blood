@@ -2,10 +2,12 @@
   "main": "node_modules/expo/AppEntry.js",
   "private": true,
   "dependencies": {
+    "axios": "^0.17.1",
     "expo": "^25.0.0",
     "object-formdata-convertor": "^1.2.2",
     "react": "16.2.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-25.0.0.tar.gz",
+    "react-native-confirmation-code-input": "^1.0.4",
     "react-native-elements": "^0.19.0",
     "react-navigation": "^1.0.0-beta.27",
     "react-navigation-addons": "git+https://github.com/satya164/react-navigation-addons.git",

@@ -18,7 +18,7 @@ class Login extends Component {
   render() {
     return (
       <View>
-        <LoginContainer />
+        <LoginContainer navigation={this.props.navigation} />
       </View>
     )
   }

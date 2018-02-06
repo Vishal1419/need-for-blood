@@ -31,6 +31,7 @@ const styles = {
     marginTop: 8,
     marginLeft: 16,
     marginRight: 16,
+    paddingLeft: 8,
     height: 30
   },
   androidInputStyle: {

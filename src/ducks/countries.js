@@ -14,12 +14,9 @@ const initialState = {
 export default function countries(state = initialState, action) {
   let modified = Object.assign({}, state);
 
-  console.log(action);
-
   switch (action.type) {
     case GET_COUNTRIES:
-    console.log(action.payload);
-      modified.countries = action.payload;
+      modified.countries = action.payload.countries;
       modified.requestState = RequestStates.success;
       return modified;
 

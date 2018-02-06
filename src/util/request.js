@@ -1,3 +1,4 @@
+import axios from 'axios';
 import manipulator from 'object-formdata-convertor';
 import store from '../ducks/store';
 
@@ -22,10 +23,13 @@ export const doRequest = (url, method, token = null, body = {}) => {
   return fetch(url, options);
 };
 
-export const doJSONRequest = (url, method, token = null, body = {}, isLoading = true) => {
+export const doJSONRequest = (url, method, token = null, body = {}) => {
   let options = {
     method: method,
-    headers: {},
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
     body: JSON.stringify(body)
   };
   if (token !== null) {
