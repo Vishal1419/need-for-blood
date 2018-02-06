@@ -30,7 +30,7 @@ export const verifyOTP = (countryCode, mobileNo, otp) => {
   const USE_MOCK = false;
   if (USE_MOCK_CALLS_FOR_ALL_API || USE_MOCK) {
     return mockRequest({
-      payload: { countryCode: countryCode, mobileNo: mobileNo, otpVerified: true },
+      payload: { countryCode: countryCode, mobileNo: mobileNo, OTPVerified: true, user: {} },
       isMock: true
     });
   }

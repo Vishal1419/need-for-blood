@@ -22,6 +22,7 @@ const styles = {
     right: 0,
     bottom: 0,
     flex: 1,
+    backgroundColor: 'rgba(64,64,64,0.6)',
     justifyContent: 'center',
     alignItems: 'center'
   },
@@ -29,7 +30,7 @@ const styles = {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#DDDDDD',
+    backgroundColor: '#444',
     height: 75,
     width: 165,
     borderRadius: 5

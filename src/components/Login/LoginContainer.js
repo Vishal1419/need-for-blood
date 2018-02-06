@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Alert } from 'react-native';
 import { connect } from 'react-redux';
 
 import Login from './Login';
@@ -41,12 +42,15 @@ class LoginContainer extends Component {
   onLogin = (values) => {
     this.props.verifyPhone(values.country, values.phone).then(() => {
       this.props.navigation.navigate('otp');
+    }).catch((err) => {
+      console.log(err);
+      Alert.alert('Error', 'There was an unexpected error. Please contact your system administrator.', [{ text: 'OK' }])
     })
   }
 
   render() {
     return (
-      <Login countries={this.props.countries} initialValues={initialValues} 
+      <Login countries={this.props.countries} initialValues={initialValues} loading={this.props.loading}
         selectedCountry={this.state.selectedCountry} selectCountry={this.selectCountry} 
         onLogin={this.onLogin}/>
     );

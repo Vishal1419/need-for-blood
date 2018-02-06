@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Alert } from 'react-native';
 import { connect } from 'react-redux';
 
 import OTP from './OTP';
@@ -9,17 +10,22 @@ class OTPContainer extends Component {
 
   onVerifyOTP = (otp) => {
     this.props.verifyOTP(this.props.countryCode, this.props.mobileNo, otp).then(() => {
-      this.props.otpVerified && this.props.user.name
-        ? this.props.navigation.navigate('home')
-        : this.props.navigation.navigate('register')
+      if (this.props.otpVerified) {
+        this.props.user.name
+          ? this.props.navigation.navigate('home')
+          : this.props.navigation.navigate('register');
+      } else {
+        Alert.alert('Invalid OTP', 'Please enter a valid OTP.', [{ text: 'OK' }]);
+      }
     }).catch((err) => {
       console.error(err);
+      Alert.alert('Error', 'There was an unexpected error. Please contact your system administrator.', [{ text: 'OK' }]);
     });
   }
 
   render() {
     return (
-      <OTP onVerifyOTP={this.onVerifyOTP} />
+      <OTP loading={this.props.loading} onVerifyOTP={this.onVerifyOTP} />
     );
   }
 }
