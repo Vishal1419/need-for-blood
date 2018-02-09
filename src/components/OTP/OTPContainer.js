@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import OTP from './OTP';
 import RequestStates from '../../util/request-states';
 import { actions as loginActions } from '../../ducks/login';
+import { resetNavigation } from '../../util/navigation-helper';
 
 class OTPContainer extends Component {
 
@@ -12,8 +13,8 @@ class OTPContainer extends Component {
     this.props.verifyOTP(this.props.countryCode, this.props.mobileNo, otp).then(() => {
       if (this.props.otpVerified) {
         this.props.user.name
-          ? this.props.navigation.navigate('home')
-          : this.props.navigation.navigate('register');
+          ? resetNavigation('home', this.props.navigation)
+          : resetNavigation('register', this.props.navigation);
       } else {
         Alert.alert('Invalid OTP', 'Please enter a valid OTP.', [{ text: 'OK' }]);
       }

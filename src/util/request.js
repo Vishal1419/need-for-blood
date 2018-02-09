@@ -1,5 +1,7 @@
 import axios from 'axios';
 import manipulator from 'object-formdata-convertor';
+
+import types from './request-types';
 import store from '../ducks/store';
 
 export const mockRequest = (result) => {
@@ -8,32 +10,44 @@ export const mockRequest = (result) => {
   });
 };
 
-export const doRequest = (url, method, token = null, body = {}) => {
+export const doRequest = (url, method, token = null, body = {}, type = types.formData) => {
   let options = {
     method: method,
     headers: {}
   };
-  if (!['GET', 'HEAD'].includes(method)) {
-    options.body = manipulator.JsonToFormData(body);
-  }
 
   if (token !== null) {
     options.headers.Authorization = `Bearer ${token}`;
   }
-  return fetch(url, options);
-};
 
-export const doJSONRequest = (url, method, token = null, body = {}) => {
-  let options = {
-    method: method,
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(body)
-  };
-  if (token !== null) {
-    options.headers.Authorization = `Bearer ${token}`;
+  console.log(type);
+
+  switch(type) {
+    case types.formData: 
+      if (!['GET', 'HEAD'].includes(method)) {
+        options.body = manipulator.JsonToFormData(body);
+      }
+      break;
+    case types.json:
+      console.log('type is json')
+      options.headers.Accept = 'application/json';
+      options.headers['Content-Type'] = 'application/json';
+      if (!['GET', 'HEAD'].includes(method)) {
+        options.body = JSON.stringify(body);
+      }
+      break;
+    case types.multipart:
+      options.headers['Content-Type'] = 'multipart/form-data';
+      if (!['GET', 'HEAD'].includes(method)) {
+        let data = new FormData();
+        for (let item in body) {
+          data.append(item, body[item]);
+        }
+        console.log(data);
+        options.body = data;
+      }
+      break;
   }
+
   return fetch(url, options);
-};
+}

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, TouchableWithoutFeedback } from 'react-native';
 
 import LoginContainer from '../components/Login/LoginContainer';
+// import LoginContainer from '../components/Register/ImagePickerExample';
 
 class Login extends Component {
   static navigationOptions = ({ navigation }) => {
