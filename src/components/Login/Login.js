@@ -42,7 +42,7 @@ const validateFields = (values) => {
 
 const styles = {
   loginButtonStyle: {
-    backgroundColor: '#fc4482',
+    backgroundColor: '#8a0707',
     // marginTop: 32
   }
 }

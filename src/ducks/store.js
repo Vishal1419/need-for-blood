@@ -7,6 +7,7 @@ import login from './login';
 import user from './user';
 import bloodGroup from './blood-group';
 import register from './register';
+import bloodCirculation from './blood-circulation';
 
 /* global window */
 /* eslint no-underscore-dangle: ["error", { "allow": ["__REDUX_DEVTOOLS_EXTENSION_COMPOSE__"] }] */
@@ -19,7 +20,8 @@ const store = createStore(
     login: login,
     user: user,
     bloodGroup: bloodGroup,
-    register: register
+    register: register,
+    bloodCirculation: bloodCirculation
   }),
   undefined,
   compose(

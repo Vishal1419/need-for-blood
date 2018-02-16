@@ -1,4 +1,3 @@
-import axios from 'axios';
 import manipulator from 'object-formdata-convertor';
 
 import types from './request-types';

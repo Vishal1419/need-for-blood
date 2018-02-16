@@ -8,9 +8,10 @@ class Login extends Component {
   static navigationOptions = ({ navigation }) => {
     const { navigate } = navigation;
     return {
+      key: 'login',
       title: 'Login',
       headerStyle: {
-        backgroundColor: '#fc4482'
+        backgroundColor: '#8a0707'
       },
       headerTintColor: '#FFFFFF'
     };

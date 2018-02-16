@@ -29,8 +29,7 @@ const Register = (props) => {
           </View>
           <Field id="name" name="name" type="input" label="Name:" component={FormInput} />
           <Field id="address" name="address" type="geo-search" label="City, State, Country:" component={FormInput} />
-          <Field id="bloodGroup" name="bloodGroup" type="select" mode="dropdown" label="Blood Group:"
-            component={FormInput}>
+          <Field id="bloodGroup" name="bloodGroup" type="select" mode="dropdown" label="Blood Group:" component={FormInput}>
             {
               props.bloodGroups && props.bloodGroups.map((bloodGroup, index) => <Picker.Item key={index} label={bloodGroup.name} value={bloodGroup.name} />)
             }
@@ -59,7 +58,7 @@ const validateFields = (values) => {
 
 const styles = {
   registerButtonStyle: {
-    backgroundColor: '#fc4482',
+    backgroundColor: '#8a0707',
     // marginTop: 32
   }
 }

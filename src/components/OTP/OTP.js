@@ -9,7 +9,7 @@ const OTP = (props) => {
     <View style={{ height: '100%' }}>
       <View style={{ marginTop: 50 }}>
         <CodeInput keyboardType="numeric" codeLength={6} className='border-box' autoFocus codeInputStyle={{ fontWeight: '800' }}
-          activeColor='#fc4482' inactiveColor='#B4B4BA' onFulfill={(code) => props.onVerifyOTP(code)}/>
+          activeColor='#8a0707' inactiveColor='#B4B4BA' onFulfill={(code) => props.onVerifyOTP(code)}/>
       </View>
       {props.loading && <Spinner />}
     </View>

@@ -7,9 +7,10 @@ class Register extends Component {
   static navigationOptions = ({ navigation }) => {
     const { navigate } = navigation;
     return {
+      key: 'register',
       title: 'Register',
       headerStyle: {
-        backgroundColor: '#fc4482'
+        backgroundColor: '#8a0707'
       },
       headerTintColor: '#FFFFFF'
     };

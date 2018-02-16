@@ -1,30 +1,29 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 
 import { backButton } from '../util/navigation-helper';
-import OTPContainer from '../components/OTP/OTPContainer';
+import BloodCircularsContainer from '../components/BloodCirculars/BloodCircularsContainer';
 
-class OTP extends Component {
+class Seekers extends Component {
   static navigationOptions = ({ navigation }) => {
     const { navigate } = navigation;
     return {
-      key: 'otp',
-      title: 'OTP',
+      title: 'Blood Seekers',
       headerStyle: {
         backgroundColor: '#8a0707'
       },
       headerTintColor: '#FFFFFF',
-      headerLeft: backButton(navigation)
+      headerLeft: backButton(navigation)      
     };
   }
 
   render() {
     return (
       <View>
-        <OTPContainer navigation={this.props.navigation} />
+        <BloodCircularsContainer navigation={this.props.navigation} />
       </View>
     )
   }
 }
 
-export default OTP;
+export default Seekers;
